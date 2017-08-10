@@ -1,4 +1,2 @@
 # ababa
-ababa
-
 abababa
