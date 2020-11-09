@@ -8,5 +8,5 @@ export default {
   choice(arr: any[]) {
     const index = this.int(0, arr.length);
     return arr[index];
-  }
+  },
 };

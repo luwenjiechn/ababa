@@ -22,17 +22,16 @@ class Name {
     return content
       .replace(/(\s|　|”|“){1,}|<br>|<p>|<\/p>/g, "")
       .replace(/\(.+\)/g, "")
-      .replace(/！|。|？|；/g, s => `${s}|`)
+      .replace(/！|。|？|；/g, (s) => `${s}|`)
       .replace(/\|$/g, "")
       .split("|")
-      .filter(item => item.length >= 8);
+      .filter((item) => item.length >= 8);
   }
 
   // 数据清洗
   cleanData(str: string) {
     // 标点符号
-    const badChars =
-      "胸鬼懒禽鸟鸡我邪罪凶丑仇鼠蟋蟀淫秽妹狐鸡鸭蝇悔鱼肉苦犬吠窥血丧饥女搔父母昏狗蟊疾病痛死潦哀痒害蛇牲妇狸鹅穴畜烂兽靡爪氓劫鬣螽毛婚姻匪婆羞辱";
+    const badChars = "胸鬼懒禽鸟鸡我邪罪凶丑仇鼠蟋蟀淫秽妹狐鸡鸭蝇悔鱼肉苦犬吠窥血丧饥女搔父母昏狗蟊疾病痛死潦哀痒害蛇牲妇狸鹅穴畜烂兽靡爪氓劫鬣螽毛婚姻匪婆羞辱";
     const badCharsReg = `/${badChars.split("").join("|")}/g`;
     const punctuationReg = /[<>《》！*(^)$%~!@#…&%￥—+=、。，？；‘’“”：·`]/g;
     return str.replace(punctuationReg, "").replace(badCharsReg, "");
@@ -94,9 +93,7 @@ class Name {
         break;
       }
     }
-    return first <= second
-      ? `${arr[first]}${arr[second]}`
-      : `${arr[second]}${arr[first]}`;
+    return first <= second ? `${arr[first]}${arr[second]}` : `${arr[second]}${arr[first]}`;
   }
 }
 export default Name;
